@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # testesSuitPay
 =======
 # Projeto Laravel - Sistema de Cursos
@@ -62,17 +62,20 @@ Este é um sistema desenvolvido em **Laravel**, com funcionalidades para control
 ### Passo a Passo
 
 1. **Clone o repositório**:
-   
+     ```bash
     git clone http://github.com/JonathanJuliao/testesSuitPay.git
     cd repositorio
+         ```
 
 3. **Instale as dependências do PHP**:
-   
+       ```bash
     composer install
+       ```
 
-4. **Crie o arquivo `.env` a partir do arquivo `.env.example`**:
-   
+5. **Crie o arquivo `.env` a partir do arquivo `.env.example`**:
+          ```bash
     cp .env.example .env
+        ```
    
 
 4. **Configure o banco de dados** no arquivo `.env` com suas credenciais:
