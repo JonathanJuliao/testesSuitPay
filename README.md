@@ -1,66 +1,115 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Projeto Laravel - Sistema de Cursos
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Este é um sistema desenvolvido em **Laravel**, com funcionalidades para controle de alunos em cursos, bem como o gerenciamento de perfis de usuários. O sistema também inclui recursos de autenticação, validação de prazos de matrícula e atualização de senhas de usuários.
 
-## About Laravel
+## Funcionalidades
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### CRUD ALUNOS
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### CRUD Cursos
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Matrícula de Alunos
+- **Matricular aluno em curso**: Permite a matrícula de um aluno em um curso, verificando se ele já está matriculado.
+- **Verificação de prazo de matrícula**: Impede a matrícula de alunos fora do prazo especificado para o curso.
 
-## Learning Laravel
+### Desmatrícula de Alunos
+- **Desmatricular aluno**: Permite a desmatrícula de um aluno, verificando se o aluno está matriculado no curso.
+- **Verificação de inscrição do aluno**: Impede a desmatrícula de alunos que não estão matriculados no curso.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Perfil de Usuário
+- **Exibição de perfil**: Exibe informações do perfil do usuário, como nome, e-mail e curso matriculado.
+- **Atualização de informações**: Permite a atualização das informações do perfil do usuário.
+- **Deleção de conta**: Permite a exclusão da conta do usuário após confirmação de senha.
+- **Verificação de e-mail**: Garante que o e-mail não seja alterado sem a devida verificação.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Autenticação e Registro de Usuário
+- **Registro de usuário**: Permite o registro de novos usuários com validação de dados.
+- **Login e autenticação**: Sistema de login e autenticação utilizando **Sanctum** para proteger as rotas da API.
+- **Atualização de senha**: Permite que o usuário atualize sua senha com a validação de senha atual.
+- **Redefinição de senha**: Sistema de redefinição de senha em caso de esquecimento.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Tecnologias Utilizadas
 
-## Laravel Sponsors
+- **Laravel 10.x**: Framework PHP para o desenvolvimento do backend.
+- **PHP 8.1**: Versão do PHP utilizada para o desenvolvimento do backend.
+- **MySQL**: Banco de dados utilizado para armazenar as informações dos alunos, cursos e usuários.
+- **Sanctum**: Sistema de autenticação API para proteger rotas.
+- **Bootstrap**: Framework CSS para o design responsivo da aplicação.
+- **Tailwind CSS**: Utilizado para um design moderno e flexível.
+- **Docker**: Para containerização e facilitar a execução do ambiente de desenvolvimento.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Bibliotecas e Ferramentas Utilizadas
 
-### Premium Partners
+- **Datatable**: Facilitar o manuseio de tabelas.
+- **Laravel Eloquent**: ORM para interação com o banco de dados.
+- **Carbon**: Para manipulação de data.
+- **Composer**: Gerenciador de dependências PHP.
+- **NPM/Yarn**: Gerenciadores de pacotes JavaScript para dependências frontend.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## Instruções de Instalação e Configuração
 
-## Contributing
+### Pré-requisitos
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- PHP 8.1 ou superior
+- Composer
+- MySQL ou outro banco de dados compatível
+- Node.js e NPM/Yarn 
+- Docker (opcional, caso deseje rodar a aplicação em containers)
 
-## Code of Conduct
+### Passo a Passo
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+1. **Clone o repositório**:
+   
+    git clone http://github.com/JonathanJuliao/testesSuitPay.git
+    cd repositorio
 
-## Security Vulnerabilities
+3. **Instale as dependências do PHP**:
+   
+    composer install
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+4. **Crie o arquivo `.env` a partir do arquivo `.env.example`**:
+   
+    cp .env.example .env
+   
 
-## License
+4. **Configure o banco de dados** no arquivo `.env` com suas credenciais:
+    ```env
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=nome_do_banco
+    DB_USERNAME=usuario
+    DB_PASSWORD=senha
+    ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+8. **Gere a chave da aplicação**:
+    ```bash
+    php artisan key:generate
+    ```
+
+9. **Execute as migrações do banco de dados**:
+    ```bash
+    php artisan migrate
+    ```
+
+10. **Instale as dependências do frontend** (se necessário):
+    ```bash
+    npm install
+    ```
+
+11. **Inicie o servidor de desenvolvimento**:
+    ```bash
+    php artisan serve
+    ```
+
+    Caso utilize Docker, você pode iniciar os containers com:
+    ```bash
+    docker-compose up -d
+    ```
+
+### Rodando os Testes
+
+Para rodar os testes da aplicação, utilize o comando:
+
+```bash
+php artisan test
