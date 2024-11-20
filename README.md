@@ -1,4 +1,3 @@
-
 # testesSuitPay
 =======
 # Projeto Laravel - Sistema de Cursos
@@ -8,8 +7,10 @@ Este é um sistema desenvolvido em **Laravel**, com funcionalidades para control
 ## Funcionalidades
 
 ### CRUD ALUNOS
+- Permite cadastrar, editar, visualizar e excluir alunos do sistema.
 
-### CRUD Cursos
+### CRUD CURSOS
+- Permite cadastrar, editar, visualizar e excluir cursos oferecidos.
 
 ### Matrícula de Alunos
 - **Matricular aluno em curso**: Permite a matrícula de um aluno em um curso, verificando se ele já está matriculado.
@@ -43,9 +44,9 @@ Este é um sistema desenvolvido em **Laravel**, com funcionalidades para control
 
 ## Bibliotecas e Ferramentas Utilizadas
 
-- **Datatable**: Facilitar o manuseio de tabelas.
+- **Datatable**: Facilita o manuseio de tabelas.
 - **Laravel Eloquent**: ORM para interação com o banco de dados.
-- **Carbon**: Para manipulação de data.
+- **Carbon**: Para manipulação de datas.
 - **Composer**: Gerenciador de dependências PHP.
 - **NPM/Yarn**: Gerenciadores de pacotes JavaScript para dependências frontend.
 
@@ -56,27 +57,26 @@ Este é um sistema desenvolvido em **Laravel**, com funcionalidades para control
 - PHP 8.1 ou superior
 - Composer
 - MySQL ou outro banco de dados compatível
-- Node.js e NPM/Yarn 
+- Node.js e NPM/Yarn
 - Docker (opcional, caso deseje rodar a aplicação em containers)
 
 ### Passo a Passo
 
 1. **Clone o repositório**:
-     ```bash
+    ```bash
     git clone http://github.com/JonathanJuliao/testesSuitPay.git
-    cd repositorio
-         ```
+    cd testesSuitPay
+    ```
 
-3. **Instale as dependências do PHP**:
-       ```bash
+2. **Instale as dependências do PHP**:
+    ```bash
     composer install
-       ```
+    ```
 
-5. **Crie o arquivo `.env` a partir do arquivo `.env.example`**:
-          ```bash
+3. **Crie o arquivo `.env` a partir do arquivo `.env.example`**:
+    ```bash
     cp .env.example .env
-        ```
-   
+    ```
 
 4. **Configure o banco de dados** no arquivo `.env` com suas credenciais:
     ```env
@@ -88,22 +88,22 @@ Este é um sistema desenvolvido em **Laravel**, com funcionalidades para control
     DB_PASSWORD=senha
     ```
 
-8. **Gere a chave da aplicação**:
+5. **Gere a chave da aplicação**:
     ```bash
     php artisan key:generate
     ```
 
-9. **Execute as migrações do banco de dados**:
+6. **Execute as migrações do banco de dados**:
     ```bash
     php artisan migrate
     ```
 
-10. **Instale as dependências do frontend** (se necessário):
+7. **Instale as dependências do frontend** (se necessário):
     ```bash
     npm install
     ```
 
-11. **Inicie o servidor de desenvolvimento**:
+8. **Inicie o servidor de desenvolvimento**:
     ```bash
     php artisan serve
     ```
@@ -119,4 +119,3 @@ Para rodar os testes da aplicação, utilize o comando:
 
 ```bash
 php artisan test
->>>>>>> master
