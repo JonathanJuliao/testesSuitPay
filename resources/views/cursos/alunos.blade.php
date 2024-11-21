@@ -14,6 +14,26 @@
                         </h1>
                     </div>
                     <div class="col-md-6 d-flex justify-content-end">
+                            @if (session('status'))
+                    <script>
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Sucesso!',
+                            text: '{{ session('status') }}',
+                        });
+                    </script>
+                @endif
+
+                @if (session('erro'))
+                    <script>
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Erro!',
+                            text: '{{ session('erro') }}',
+                        });
+                    </script>
+                @endif
+                
                         @php
 
                             $prazoExpirado = \Carbon\Carbon::now()->isAfter(
@@ -114,7 +134,7 @@
                             },
                             error: function(error) {
                                 Swal.fire('Erro!',
-                                    'Ocorreu um erro ao desmatricular o aluno.',
+                                    'Ocorreu um erro ao desmatricular o aluno.' + error,
                                     'error');
                                 console.error(error);
                             }
@@ -132,17 +152,17 @@
             });
         }
 
-        function matricularAluno() {
+       function matricularAluno() {
             const alunoId = $('#alunoSelect').val();
             const cursoId = {{ $curso->id }};
-
+        
             if (!alunoId) {
                 Swal.fire('Erro!', 'Por favor, selecione um aluno para matricular.', 'error');
                 return;
             }
-
+        
             showLoading('Aguarde enquanto o aluno é matriculado no curso.');
-
+        
             $.ajax({
                 url: `/cursos/${cursoId}/matricular/${alunoId}`,
                 method: 'POST',
@@ -153,12 +173,15 @@
                     Swal.fire('Matriculado!', response.message, 'success');
                     location.reload();
                 },
-                error: function(error) {
-                    Swal.fire('Erro!', 'Ocorreu um erro ao matricular o aluno ', 'error');
-                    console.error(error);
+                error: function(xhr) {
+                  
+                    const errorMessage = xhr.responseJSON?.error || 'Erro inesperado ao tentar matricular o aluno.';
+                    
+                    Swal.fire('Erro!', errorMessage, 'error');
+                    console.error(xhr); 
                 }
             });
-        }
+}
 
         function showLoading(message) {
             Swal.fire({

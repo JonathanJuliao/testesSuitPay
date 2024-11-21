@@ -8,6 +8,26 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="overflow-hidden shadow-sm sm:rounded-lg p-6">
                 <div class="container">
+                        @if (session('status'))
+                    <script>
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Sucesso!',
+                            text: '{{ session('status') }}',
+                        });
+                    </script>
+                @endif
+
+                @if (session('erro'))
+                    <script>
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Erro!',
+                            text: '{{ session('erro') }}',
+                        });
+                    </script>
+                @endif
+                
                     <div class="row mb-6">
                         <div class="col-md-6">
                             <h1 class="text-2xl font-bold mb-4">Lista de Cursos</h1>

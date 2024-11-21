@@ -103,14 +103,26 @@ class CursoController extends Controller
         return view('cursos.alunos', compact('curso', 'alunosDisponiveis'));
     }
     
-    public function matricular(Request $request, $cursoId, $alunoId)
+ public function matricular(Request $request, $cursoId, $alunoId)
     {
-        $curso = Curso::findOrFail($cursoId);
-        $aluno = Aluno::findOrFail($alunoId);
-        $curso->alunos()->attach($aluno);
-        return redirect()->back()->with('success', 'Aluno matriculado com sucesso!');
+        try {
+            $curso = Curso::withCount('alunos')->findOrFail($cursoId);
+            $aluno = Aluno::findOrFail($alunoId);
+    
+            if ($curso->alunos_count >= $curso->quantidade_maxima_alunos) {
+                 return response()->json(['error' => 'O curso atingiu a quantidade maxima de alunos.'], 500);
+            }
+    
+            if ($curso->alunos()->where('alunos.id', $alunoId)->exists()) {
+              return response()->json(['error' => 'O aluno já está matriculado no curso.'], 500);
+            }
+    
+            $curso->alunos()->attach($aluno);
+            return redirect()->back()->with('success', 'Aluno matriculado com sucesso!');
+        } catch (\Throwable $th) {
+             return response()->json(['error' => 'Erro ao cadastrar '], 500);
+        }
     }
-
     public function desmatricular(Request $request, $cursoId, $alunoId)
     {
         $curso = Curso::findOrFail($cursoId);
